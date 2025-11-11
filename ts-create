@@ -1,0 +1,25 @@
+#!/bin/bash
+
+projectFolder=${1:-NewProject}
+
+# This Script is used to create a new TypeScript project with the template on $HOME/Templates/typescript-blank-project/
+
+echo "📁 Creating project $projectFolder"
+
+# Check if template exists
+if [ ! -d "$HOME/Templates/typescript-blank-project" ]; then
+    echo "❌ Template not found"
+    exit 1
+fi
+
+cp -r "$HOME/Templates/typescript-blank-project" "$projectFolder"
+
+# Change directory to project folder
+cd "$projectFolder"
+
+# Start git repository
+git init > /dev/null
+echo "✅ Git repository initialized"
+
+# Success message
+echo "✅ Project created successfully"
