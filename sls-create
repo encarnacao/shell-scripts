@@ -18,6 +18,8 @@ echo "✅ Project created"
 cd "$projectFolder"
 rm -rf .git
 git init > /dev/null
+echo "# $projectFolder Lambda" > README.md
+echo "" >> README.md
 
 echo "✅ Project initialized"
 
