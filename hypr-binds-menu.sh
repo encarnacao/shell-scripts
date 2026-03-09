@@ -27,8 +27,3 @@ chosen="$(
     | "\(.combo)\t" + (if .desc != "" then .desc else "[No description]" end) + "\t" + .action
   ' | sort -u | column -t -s $'\t' | rofi -dmenu -i -p "Hypr binds"
 )"
-
-[ -z "${chosen:-}" ] && exit 0
-
-printf '%s\n' "$chosen" | wl-copy
-notify-send "Hyprland binds" "Copied selected line to clipboard"
