@@ -16,6 +16,8 @@ Aqui há uma coleção de scripts de shell para diversas tarefas. Estes scripts 
 | [update-lambda-alias.sh](./update-lambda-alias.sh) | Atualiza o alias `prod` para apontar para `$LATEST` em todas as funções Lambda que correspondem a um prefixo.                |
 | [create-shortcut.sh](./create-shortcut.sh)         | Gera um atalho `.desktop` para jogos/aplicações Wine a partir de um template, recebendo nome, executável e ícone.            |
 | [copy-path.sh](./copy-path.sh)                     | Copia o caminho absoluto de um arquivo ou diretório para a área de transferência usando `wl-copy`.                           |
+| [create-link.sh](./create-link.sh)                 | Cria um link simbólico para um arquivo ou diretório, facilitando o acesso a ele a partir de outro local.                     |
+| [hypr-binds-menu.sh](./hypr-binds-menu.sh)         | Exibe um menu para selecionar e copiar atalhos do Hyprland para a área de transferência. Exige rofi e jq.                    |
 
 ## Link simbólico
 
