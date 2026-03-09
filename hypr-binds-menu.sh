@@ -21,12 +21,11 @@ chosen="$(
             + (if (mods(.modmask) != "" and ((.key // "") != "" or (.keycode // 0) != 0)) then "+" else "" end)
             + (if (.key // "") != "" then .key else ("code:" + ((.keycode // 0) | tostring)) end)
           ),
-        submap: (if (.submap // "") == "" then "default" else .submap end),
         desc: (if (.has_description // false) then (.description // "") else "" end),
         action: ((.dispatcher // "") + (if (.arg // "") != "" then " " + .arg else "" end))
       }
-    | "\(.combo)\t[\(.submap)]\t" + (if .desc != "" then .desc else .action end)
-  ' | sort -u | rofi -dmenu -i -p "Hypr binds"
+    | "\(.combo)\t" + (if .desc != "" then .desc else "[No description]" end) + "\t" + .action
+  ' | sort -u | column -t -s $'\t' | rofi -dmenu -i -p "Hypr binds"
 )"
 
 [ -z "${chosen:-}" ] && exit 0
