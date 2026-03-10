@@ -23,7 +23,12 @@ shift $((OPTIND - 1))
 
 WINDOW_PATTERN="$1"
 LAUNCH_COMMAND="${2:-"uwsm-app -- $WINDOW_PATTERN"}"
-WINDOW_ADDRESS=$(hyprctl clients -j | jq -r --arg p "$WINDOW_PATTERN" '.[]|select((.class|test("\\b" + $p + "\\b";"i")) or (.title|test("\\b" + $p + "\\b";"i")))|.address' | head -n1)
+WINDOW_ADDRESS=$(hyprctl clients -j | jq -r --arg p "$WINDOW_PATTERN" '  ($p | split("-")) as $parts
+  | .[]
+  | . as $client
+  | select(
+      any($parts[]; ($client.class | test(.;"i")) or ($client.title | test(.;"i")))
+    )|.address' | head -n1)
 
 if [ $DEBUG -eq 1 ]; then
   echo $WINDOW_PATTERN
