@@ -4,20 +4,21 @@ Aqui há uma coleção de scripts de shell para diversas tarefas. Estes scripts 
 
 ## Descrição breve dos scripts
 
-| Script                                             | Descrição                                                                                                                    |
-| -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| [hello-world.sh](./hello-world.sh)                 | Exemplo de uso de `getopts` para parsing de flags (`-n` para nome, `-v` para modo verboso).                                  |
-| [dotenv-print.sh](./dotenv-print.sh)               | Carrega e imprime as variáveis de ambiente de um arquivo `.env` usando `dotenv` e Node.js.                                   |
-| [ts-create.sh](./ts-create.sh)                     | Cria um novo projeto TypeScript a partir de um template local e inicializa um repositório Git.                               |
-| [ts-invoke.sh](./ts-invoke.sh)                     | Executa um arquivo JS compilado (`./build/event.js`) com variáveis de ambiente carregadas de um `.env`.                      |
-| [sls-create.sh](./sls-create.sh)                   | Cria um novo projeto Serverless com TypeScript a partir de um template local e inicializa o repositório.                     |
-| [sls-invoke.sh](./sls-invoke.sh)                   | Executa `./src/event.js` localmente com variáveis de ambiente carregadas de um `.env` via `dotenv`.                          |
-| [fuzzy-search.sh](./fuzzy-search.sh)               | Busca conteúdo dentro de diretórios cujo nome corresponde a um substring, ignorando pastas como `node_modules`, `.git`, etc. |
-| [update-lambda-alias.sh](./update-lambda-alias.sh) | Atualiza o alias `prod` para apontar para `$LATEST` em todas as funções Lambda que correspondem a um prefixo.                |
-| [create-shortcut.sh](./create-shortcut.sh)         | Gera um atalho `.desktop` para jogos/aplicações Wine a partir de um template, recebendo nome, executável e ícone.            |
-| [copy-path.sh](./copy-path.sh)                     | Copia o caminho absoluto de um arquivo ou diretório para a área de transferência usando `wl-copy`.                           |
-| [create-link.sh](./create-link.sh)                 | Cria um link simbólico para um arquivo ou diretório, facilitando o acesso a ele a partir de outro local.                     |
-| [hypr-binds-menu.sh](./hypr-binds-menu.sh)         | Exibe um menu para selecionar e copiar atalhos do Hyprland para a área de transferência. Exige rofi e jq.                    |
+| Script                                             | Descrição                                                                                                                                                                                                                 |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [hello-world.sh](./hello-world.sh)                 | Exemplo de uso de `getopts` para parsing de flags (`-n` para nome, `-v` para modo verboso).                                                                                                                               |
+| [dotenv-print.sh](./dotenv-print.sh)               | Carrega e imprime as variáveis de ambiente de um arquivo `.env` usando `dotenv` e Node.js.                                                                                                                                |
+| [ts-create.sh](./ts-create.sh)                     | Cria um novo projeto TypeScript a partir de um template local e inicializa um repositório Git.                                                                                                                            |
+| [ts-invoke.sh](./ts-invoke.sh)                     | Executa um arquivo JS compilado (`./build/event.js`) com variáveis de ambiente carregadas de um `.env`.                                                                                                                   |
+| [sls-create.sh](./sls-create.sh)                   | Cria um novo projeto Serverless com TypeScript a partir de um template local e inicializa o repositório.                                                                                                                  |
+| [sls-invoke.sh](./sls-invoke.sh)                   | Executa `./src/event.js` localmente com variáveis de ambiente carregadas de um `.env` via `dotenv`.                                                                                                                       |
+| [fuzzy-search.sh](./fuzzy-search.sh)               | Busca conteúdo dentro de diretórios cujo nome corresponde a um substring, ignorando pastas como `node_modules`, `.git`, etc.                                                                                              |
+| [update-lambda-alias.sh](./update-lambda-alias.sh) | Atualiza o alias `prod` para apontar para `$LATEST` em todas as funções Lambda que correspondem a um prefixo.                                                                                                             |
+| [create-shortcut.sh](./create-shortcut.sh)         | Gera um atalho `.desktop` para jogos/aplicações Wine a partir de um template, recebendo nome, executável e ícone.                                                                                                         |
+| [copy-path.sh](./copy-path.sh)                     | Copia o caminho absoluto de um arquivo ou diretório para a área de transferência usando `wl-copy`.                                                                                                                        |
+| [create-link.sh](./create-link.sh)                 | Cria um link simbólico para um arquivo ou diretório, facilitando o acesso a ele a partir de outro local.                                                                                                                  |
+| [hypr-binds-menu.sh](./hypr-binds-menu.sh)         | Exibe um menu para selecionar e copiar atalhos do Hyprland para a área de transferência. Exige rofi e jq.                                                                                                                 |
+| [launch-or-focus.sh](./launch-or-focus.sh)         | Lança um aplicativo ou foca a janela existente, usando `hyprctl` para buscar informações de aplicativos abertos e mover foco. Baseado no script do Omarchy com algumas modificações que foram necessárias em meu sistema. |
 
 ## Link simbólico
 
