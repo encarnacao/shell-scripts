@@ -23,21 +23,25 @@ shift $((OPTIND - 1))
 
 WINDOW_PATTERN="$1"
 LAUNCH_COMMAND="${2:-"uwsm-app -- $WINDOW_PATTERN"}"
-WINDOW_ADDRESS=$(hyprctl clients -j | jq -r --arg p "$WINDOW_PATTERN" '
+POSSIBLE_CLASS=$(infer-hypr-class "$WINDOW_PATTERN" | jq '.possible_app_id')
+WINDOW_ADDRESS=$(hyprctl clients -j | jq -r --arg p "$WINDOW_PATTERN" --arg pc "$POSSIBLE_CLASS" '
   ($p | gsub("[^a-zA-Z0-9]";"") | ascii_downcase) as $norm_p |
+  ($pc |  gsub("[^a-zA-Z0-9]";"") | ascii_downcase) as $norm_pc |
   .[] | 
   ((.class // "") | gsub("[^a-zA-Z0-9]";"") | ascii_downcase) as $c |
-  ((.initialTitle // "") | gsub("[^a-zA-Z0-9]";"") | ascii_downcase) as $t |
+  ((.title // "") | gsub("[^a-zA-Z0-9]";"") | ascii_downcase) as $t |
   select(
     ($c | contains($norm_p)) or
     ($t | contains($norm_p)) or
     (($norm_p | contains($c)) and $c != "") or
-    (($norm_p | contains($t)) and $t != "")
+    (($norm_p | contains($t)) and $t != "") or
+    ($c | contains($norm_pc) and $norm_pc != "") or
+    ($norm_pc | contains($c) and $c != "")
   ) | .address' | head -n1)
 
 if [ $DEBUG -eq 1 ]; then
   echo "$WINDOW_PATTERN"
-  echo "$LAUNCH_COMMAND"
+  echo "$POSSIBLE_CLASS"
   echo "$WINDOW_ADDRESS"
   notify-send "$WINDOW_PATTERN - $WINDOW_ADDRESS"
   exit 0
