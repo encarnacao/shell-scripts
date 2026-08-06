@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 TARGET="$1"
@@ -21,4 +20,3 @@ fi
 realpath "$TARGET" | wl-copy
 
 echo -e "${GREEN} Copied to clipboard:${RESET} ${BLUE}$(realpath "$TARGET")${RESET}"
-
