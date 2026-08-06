@@ -1,7 +1,7 @@
 #!/bin/bash
 
 projectFolder=${1:-NewProject}
-templateFolder=$HOME/Templates/serverless-typescript-boiler
+templateFolder=$HOME/Templates/typescript-blank-project/
 
 # This Script is used to create a new TypeScript project with the template on $HOME/Templates/typescript-blank-project/
 
@@ -9,8 +9,8 @@ echo "📁 Creating project $projectFolder"
 
 # Check if template exists
 if [ ! -d "$templateFolder" ]; then
-    echo "❌ Template not found"
-    exit 1
+  echo "❌ Template not found"
+  exit 1
 fi
 
 cp -r "$templateFolder" "$projectFolder"
@@ -19,7 +19,7 @@ cp -r "$templateFolder" "$projectFolder"
 cd "$projectFolder"
 
 # Start git repository
-git init > /dev/null
+git init >/dev/null
 echo "✅ Git repository initialized"
 
 # Success message
