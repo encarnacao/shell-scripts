@@ -56,9 +56,8 @@ CLIENT_INFO=$(hyprctl clients -j | jq -r --arg p "$WINDOW_PATTERN" --arg pc "$PO
 
 WINDOW_ADDRESS=$(printf '%s\n' "$CLIENT_INFO" | jq -r '.address // empty' | head -n1)
 
-create-log
-
 if [ $DEBUG -eq 1 ]; then
+  create-log
   echo "$WINDOW_PATTERN"
   echo "$POSSIBLE_CLASS"
   echo "$WINDOW_ADDRESS"
