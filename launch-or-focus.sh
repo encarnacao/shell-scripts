@@ -67,7 +67,7 @@ if [ $DEBUG -eq 1 ]; then
 fi
 
 if [[ -n $WINDOW_ADDRESS ]]; then
-  hyprctl dispatch focuswindow "address:$WINDOW_ADDRESS"
+  hyprctl dispatch "hl.dsp.focus({ window = \"address:$WINDOW_ADDRESS\" })"
 else
   eval exec setsid "$LAUNCH_COMMAND"
 fi
